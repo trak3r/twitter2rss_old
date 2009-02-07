@@ -4,7 +4,7 @@ xml.rss :version => "2.0" do
     xml.title "Tweets for #{@tweeter.screen_name}"
     xml.description "RSS feed of tweets for #{@tweeter.screen_name}"
 #    xml.link formatted_articles_url(:rss)
-    for tweet in @tweets
+    for tweet in @tweeter.tweets(params[:password])
       xml.item do
         xml.title tweet.text
         xml.description tweet.text

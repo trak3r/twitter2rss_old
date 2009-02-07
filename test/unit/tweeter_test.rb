@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class TweeterTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "last_polled_at" do
+    password = 'donthackme'
+    tweeter = Tweeter.find_or_create_by_screen_name('teflonted')
+    first_poll = tweeter.tweets(password)
+    assert !first_poll.empty?
+    second_poll = tweeter.tweets(password)
+    assert second_poll.empty?
   end
 end

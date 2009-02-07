@@ -2,10 +2,6 @@ class TweetController < ApplicationController
 
   def index
     @tweeter = Tweeter.find_or_create_by_screen_name(params[:screen_name])
-    twitter = Twitter::Base.new(@tweeter.screen_name, params[:password])
-    @tweets = twitter.merged_timeline(:since => @tweeter.last_polled_at)
-    @tweeter.last_polled_at = Date.parse(@tweets.last.created_at)
-    @tweeter.save!
   end
 
   #<Twitter::Status:0x1a03d58
