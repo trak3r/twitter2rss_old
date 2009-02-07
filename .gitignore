@@ -1,3 +1,4 @@
+*.swp
 db/schema.rb
 nbproject/*
 log/*
