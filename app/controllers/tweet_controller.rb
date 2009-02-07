@@ -30,8 +30,11 @@ class TweetController < ApplicationController
   # @text="I think it's called \"fellatio\"">
 
   def index
-    @username = params[:username]
-    twitter = Twitter::Base.new(@username, params[:password])
+    @screen_name = params[:screen_name]
+    twitter = Twitter::Base.new(@screen_name, params[:password])
     @tweets = twitter.merged_timeline
+    tweeter = Tweeter.find_or_create_by_screen_name(@screen_name)
+    tweeter.last_polled_at = Date.parse(tweets.last.created_at)
+    tweeter.save!
   end
 end
