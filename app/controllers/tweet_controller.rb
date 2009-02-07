@@ -1,5 +1,13 @@
 class TweetController < ApplicationController
 
+  def index
+    @tweeter = Tweeter.find_or_create_by_screen_name(params[:screen_name])
+    twitter = Twitter::Base.new(@tweeter.screen_name, params[:password])
+    @tweets = twitter.merged_timeline(:since => @tweeter.last_polled_at)
+    @tweeter.last_polled_at = Date.parse(@tweets.last.created_at)
+    @tweeter.save!
+  end
+
   #<Twitter::Status:0x1a03d58
   #  @user=#<Twitter::User:0x19c5760
   #    @url="http://chadfowler.com",
@@ -28,13 +36,5 @@ class TweetController < ApplicationController
   # @id="51225600",
   # @recipient_id="845611",
   # @text="I think it's called \"fellatio\"">
-
-  def index
-    @screen_name = params[:screen_name]
-    twitter = Twitter::Base.new(@screen_name, params[:password])
-    @tweets = twitter.merged_timeline
-    tweeter = Tweeter.find_or_create_by_screen_name(@screen_name)
-    tweeter.last_polled_at = Date.parse(tweets.last.created_at)
-    tweeter.save!
-  end
+  
 end
