@@ -4,7 +4,7 @@ class Tweeter < ActiveRecord::Base
 
   def tweets(password)
     twitter = Twitter::Base.new(self.screen_name, password)
-    if false #self.last_polled_at
+    if self.last_polled_at
       options = {:since => self.last_polled_at, :count => 200}
     else
       options = {}
