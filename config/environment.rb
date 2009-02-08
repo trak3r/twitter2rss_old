@@ -28,6 +28,8 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'twitter', :version => '0.4.1'
+  config.gem "capistrano", :version => '2.5.2'
+  config.gem "capistrano-ext", :lib => "capistrano", :version => '1.2.1'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
