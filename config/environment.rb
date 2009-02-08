@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem 'json', :version => '1.1.3'
   config.gem 'httparty', :version => '0.2.6'
   config.gem 'twitter', :version => '0.4.1'
   config.gem "net-ssh", :lib => "net/ssh", :version => "2.0.4"
