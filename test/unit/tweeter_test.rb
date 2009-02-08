@@ -7,8 +7,8 @@ class TweeterTest < ActiveSupport::TestCase
     assert tweeter.last_polled_at.nil?
     first_poll = tweeter.tweets(password)
     assert !first_poll.empty?
+    assert !tweeter.last_polled_at.nil?
     second_poll = tweeter.tweets(password)
     assert second_poll.empty?
-    assert !tweeter.last_polled_at.nil?
   end
 end
