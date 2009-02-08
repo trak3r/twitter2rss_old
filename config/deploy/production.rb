@@ -39,18 +39,17 @@ set :deploy_via, :remote_cache
 #	Passenger
 #############################################################
 
-after "deploy:update_code", "db:symlink"
-
 namespace :db do
   desc "Make symlink for database yaml"
   task :symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
+after "deploy:update_code", "db:symlink"
 
 namespace :deploy do
 
-  after 'deploy', 'deploy:migrate'
+  after 'db:symlink', 'deploy:migrate'
   after 'deploy:migrate', 'deploy:cleanup'
 
   # Restart passenger on deploy
