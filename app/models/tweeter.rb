@@ -4,7 +4,12 @@ class Tweeter < ActiveRecord::Base
 
   def tweets(password)
     twitter = Twitter::Base.new(self.screen_name, password)
-    _tweets = twitter.merged_timeline(:since => self.last_polled_at)
+    if self.last_polled_at
+      options = {:since => self.last_polled_at}
+    else
+      options = {}
+    end
+    _tweets = twitter.merged_timeline(options)
     if _tweets
       if _tweets.last
         self.last_polled_at = Date.parse(_tweets.last.created_at)
