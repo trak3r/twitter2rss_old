@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
         xml.description "#{tweet.text}"
         xml.pubDate "#{Date.parse(tweet.created_at).to_s(:rfc822)}"
         xml.link "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" unless direct_message?(tweet)
-        xml.guid "#{tweet.id}"
+        xml.guid "twitter2rss_#{tweet.id}"
       end
     end
   end
