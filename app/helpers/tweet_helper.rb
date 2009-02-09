@@ -1,4 +1,12 @@
 module TweetHelper
+  def avatar(tweet)
+    if profile_image_url(tweet)
+      "#{image_tag(profile_image_url(tweet), {:align => 'left'})}"
+    else
+      ''
+    end
+  end
+
   def profile_image_url(tweet)
     tweet.user.profile_image_url rescue nil
   end

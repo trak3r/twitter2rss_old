@@ -6,8 +6,7 @@ xml.rss :version => "2.0" do
     for tweet in @tweeter.tweets(params[:password])
       xml.item do
         xml.title "#{screen_name(tweet)}"
-        image = "#{image_tag(profile_image_url(tweet))}&nbsp;" if profile_image_url(tweet)
-        xml.description "#{image}#{tweet.text}"
+        xml.description "#{avatar(tweet)}#{tweet.text}"
         xml.pubDate "#{tweet.created_at}"
         xml.link "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" unless direct_message?(tweet)
         xml.guid "twitter2rss_#{tweet.id}"
