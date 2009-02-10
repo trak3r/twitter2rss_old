@@ -1,4 +1,8 @@
 module TweetHelper
+  def reply?(tweeter, tweet)
+    tweet.text.include?("@#{tweeter.screen_name}")
+  end
+  
   def avatar(tweet)
     if profile_image_url(tweet)
       "#{image_tag(profile_image_url(tweet), {:align => 'left'})}"
