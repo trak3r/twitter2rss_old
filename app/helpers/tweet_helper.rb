@@ -2,10 +2,14 @@ module TweetHelper
   def reply?(tweeter, tweet)
     tweet.text.include?("@#{tweeter.screen_name}")
   end
+
+  def formatted(text)
+    "<span style=\"font-size:x-large\">#{text}</span>"
+  end
   
   def avatar(tweet)
     if profile_image_url(tweet)
-      "#{image_tag(profile_image_url(tweet), {:align => 'left'})}"
+      "#{image_tag(profile_image_url(tweet), {:align => 'left', :style => 'padding-right:16px'})}"
     else
       ''
     end
