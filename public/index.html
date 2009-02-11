@@ -1,67 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Teflon Ted's Twitter2RSS Proxy</title>
-        <style type="text/css" media="screen">
+
+        <style type="text/css">
+            <!--
             body {
-                font-family: Helvetica;
-                font-size: x-large;
-                padding: 33px;
+                font-family: Georgia, "Times New Roman", Times, serif;
+                font-size: 16px;
+                color: #000000;
+                background-color: powderblue;
+                margin-top: 25px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+            }
+            .content {
+                background-color: #F2F2F2;
+                width: 80%;
+                margin-right: auto;
+                margin-left: auto;
+                border: 1px solid #FFFFFF;
+                padding: 20px;
+            }
+            .content h2 {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 22px;
+                color: #000066;
+            }
+            h1 {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 36px;
                 color: #666666;
+                display: block;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: #999999;
             }
-            .question {
-                font-weight: bold;
-                padding: 11px;
+            blockquote {
+                font-family: monospace;
             }
-            .answer {
-                padding: 22px;
+            .username, .password {
+                color: green;
             }
-            .url {
-                font-family: Courier;
-                padding: 11px 0 11px 0;
-                color: black;
-            }
-            .username {
-                color: darkgreen;
-                font-style: italic;
-            }
-            .password {
-                color: darkred;
-                font-style: italic;
-            }
+            -->
         </style>
     </head>
+
     <body>
-        <div class="question">
-            Twitter already has RSS feeds. Why would I use this service?
-        </div>
-        <div class="answer">
-            Twitter's RSS feed does not include direct messages or avatars
-            and commonly truncates the tweets.
-            Blech!
-        </div>
-        <div class="question">
-            OK, you've sold me.  How do I use it?
-        </div>
-        <div class="answer">
-            Plug this URL into your feed reader:
-            <div class="url">
-                http://twitter2rss.anachromystic.com/<span class="username">username</span>/<span class="password">password</span>.rss
-            </div>
-            Replace <span class="username">username</span> with your Twitter login
-            and <span class="password">password</span> with your Twitter password.
-        </div>
-        <div class="question">
-            OMG that's so incredibly insecure to put my password in the URL!
-        </div>
-        <div class="answer">
-            Yup, it is.
-            Rest assured I'm not storing your password, <em>but</em> you are at risk of getting it sniffed either on the 'net or over your shoulder.
-            I'll be implementing a feature, <em>eventually</em>, which will let you generate a more obfuscated unique URL for security through obscurity.
-            But, for now, this is how it works.
-            Love it or leave it.
+        <div class="content">
+            <h1>Twitter2RSS</h1>
+
+            <h2> Twitter already has RSS feeds. Why would I use this service? </h2>
+            <p>
+                Twitter's RSS feed does not include direct messages or avatars and commonly truncates the tweets. Blech!
+            </p>
+            <h2> OK, you've sold me.  How do I use it? </h2>
+            <p>
+                Plug this URL into your feed reader:
+                <blockquote>
+                    http://twitter2rss.anachromystic.com/<span class="username">username</span>/<span class="password">password</span>.rss
+                </blockquote>
+                Replace <span class="username">username</span> with your Twitter login
+                and <span class="password">password</span> with your Twitter password.
+            </p>
+            <h2> OMG that's so incredibly insecure to put my password in the URL! </h2>
+            <p>
+                Yup, it is. Rest assured I'm not storing your password, <em>but</em> you are at risk of getting it sniffed either on the 'net or over your 		shoulder. I'll be implementing a feature, <em>eventually</em>, which will let you generate a more obfuscated unique URL for security through obscurity. But, for now, this is how it works. Love it or leave it.
+            </p>
         </div>
     </body>
 </html>
