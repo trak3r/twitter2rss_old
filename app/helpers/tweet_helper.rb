@@ -4,12 +4,12 @@ module TweetHelper
   end
 
   def formatted(text)
-    "<span style=\"font-size:x-large\">#{text}</span>"
+    "<span style=\"font-size:large\">#{text}</span>"
   end
   
   def avatar(tweet)
     if profile_image_url(tweet)
-      "#{image_tag(profile_image_url(tweet), {:align => 'left', :style => 'padding-right:16px'})}"
+      "#{image_tag(profile_image_url(tweet), {:align => 'left', :style => 'padding-right:10px'})}"
     else
       ''
     end
