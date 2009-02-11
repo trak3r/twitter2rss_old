@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
         suffix = " (private message)" if direct_message?(tweet)
         xml.title "#{screen_name(tweet)} #{suffix}"
         xml.description "#{avatar(tweet)}#{tweet.text}"
-        xml.pubDate "#{tweet.created_at}"
+        xml.pubDate DateTime.parse(tweet.created_at).strftime("%a, %d %b %Y %H:%M:%S %z") # rfc822
         xml.link "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" unless direct_message?(tweet)
         xml.guid "twitter2rss_#{tweet.id}"
       end
