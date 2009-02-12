@@ -11,7 +11,7 @@ xml.rss :version => "2.0" do
         xml.description do
           xml.cdata!("#{avatar(tweet)}#{formatted(tweet.text)}")
         end
-        xml.pubDate DateTime.parse(tweet.created_at).strftime("%a, %d %b %Y %H:%M:%S %z") # rfc822
+        xml.pubDate DateTime.parse(tweet.created_at).strftime("%a, %d %b %Y %H:%M:%S EST") # rfc822
         xml.link "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" unless direct_message?(tweet)
         xml.guid "twitter2rss_#{tweet.id}"
       end
