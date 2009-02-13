@@ -1,10 +1,17 @@
 module TweetHelper
+
+  def suffix(tweet)
+    return " (reply)" if reply?(@tweeter, tweet)
+    return " (private message)" if direct_message?(tweet)
+    return ""
+  end
+
   def reply?(tweeter, tweet)
     tweet.text.include?("@#{tweeter.screen_name}")
   end
 
   def formatted(text)
-    "<span style=\"font-size:large\">#{text}</span>"
+    "<span style=\"font-size:medium\">#{text}</span>"
   end
   
   def avatar(tweet)
@@ -26,4 +33,5 @@ module TweetHelper
   def direct_message?(tweet)
     tweet.kind_of?(Twitter::DirectMessage)
   end
+
 end

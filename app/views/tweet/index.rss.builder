@@ -5,9 +5,7 @@ xml.rss :version => "2.0" do
     xml.description "Tweets for #{@tweeter.screen_name}"
     for tweet in @tweeter.tweets(params[:password])
       xml.item do
-        suffix = " (reply)" if reply?(@tweeter, tweet)
-        suffix = " (private message)" if direct_message?(tweet)
-        xml.title "#{screen_name(tweet)} #{suffix}"
+        xml.title "#{screen_name(tweet)}#{suffix(tweet)}"
         xml.link "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" unless direct_message?(tweet)
         xml.guid "twitter2rss_#{tweet.id}"
         xml.description do
