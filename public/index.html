@@ -8,13 +8,8 @@
             <!--
             body {
                 font-family: Georgia, "Times New Roman", Times, serif;
-                font-size: 16px;
-                color: #000000;
                 background-color: powderblue;
                 margin-top: 25px;
-                margin-right: 0px;
-                margin-bottom: 0px;
-                margin-left: 0px;
             }
             .content {
                 background-color: #F2F2F2;
@@ -24,25 +19,24 @@
                 border: 1px solid #FFFFFF;
                 padding: 20px;
             }
-            .content h2 {
+            h2 {
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 22px;
-                color: #000066;
             }
             h1 {
                 font-family: Arial, Helvetica, sans-serif;
                 font-size: 36px;
                 color: #666666;
-                display: block;
                 border-bottom-width: 1px;
                 border-bottom-style: solid;
                 border-bottom-color: #999999;
             }
             blockquote {
+                font-size: large;
                 font-family: monospace;
             }
             .username, .password {
-                color: green;
+                font-size: large;
+                color: darkred;
             }
             -->
         </style>
@@ -55,6 +49,11 @@
             <h2> Twitter already has RSS feeds. Why would I use this service? </h2>
             <p>
                 Twitter's RSS feed does not include direct messages or avatars and commonly truncates the tweets. Blech!
+                </p>
+                <p>
+                Also, by default, Twitter (and all third-party clients that conform to its API) 
+                will not catch any @replies if your screen name isn't <em>the first word in the message</em>;
+                Twitter2RSS will pick it up <em>no matter where</em> in the message it appears.
             </p>
             <h2> OK, you've sold me.  How do I use it? </h2>
             <p>
