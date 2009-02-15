@@ -3,11 +3,20 @@ module TweetHelper
   def suffix(tweet)
     return " (@reply)" if reply?(@tweeter, tweet)
     return " (direct message)" if direct_message?(tweet)
+    return " (search result reference)" if reference?(tweet)
     return ""
   end
 
   def reply?(tweeter, tweet)
-    tweet.text.include?("@#{tweeter.screen_name}")
+    tweet.text.starts_with?("@#{tweeter.screen_name}")
+  end
+
+  def direct_message?(tweet)
+    tweet.kind_of?(Twitter::DirectMessage)
+  end
+
+  def reference?(tweet)
+    tweet.kind_of?(Twitter::SearchResult)
   end
 
   def formatted(text)
@@ -28,11 +37,7 @@ module TweetHelper
   end
 
   def screen_name(tweet)
-    tweet.user.screen_name rescue tweet.sender_screen_name
-  end
-
-  def direct_message?(tweet)
-    tweet.kind_of?(Twitter::DirectMessage)
+    tweet.user.screen_name rescue tweet.sender_screen_name rescue tweet.from_user
   end
 
   private
