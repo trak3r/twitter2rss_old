@@ -1,8 +1,8 @@
 module TweetHelper
 
   def suffix(tweet)
-    return " (reply)" if reply?(@tweeter, tweet)
-    return " (private message)" if direct_message?(tweet)
+    return " (@reply)" if reply?(@tweeter, tweet)
+    return " (direct message)" if direct_message?(tweet)
     return ""
   end
 
@@ -16,10 +16,11 @@ module TweetHelper
   
   def avatar(tweet)
     if profile_image_url(tweet)
-      "#{image_tag(profile_image_url(tweet), {:align => 'left', :style => 'padding-right:10px'})}"
+      url = profile_image_url(tweet)
     else
-      ''
+      url = lookup_avatar(tweet.sender_id)
     end
+    "#{image_tag(url, {:align => 'left', :style => 'padding-right:10px'})}"
   end
 
   def profile_image_url(tweet)
@@ -32,6 +33,12 @@ module TweetHelper
 
   def direct_message?(tweet)
     tweet.kind_of?(Twitter::DirectMessage)
+  end
+
+  private
+
+  def lookup_avatar(id)
+    @twitter.user(id).profile_image_url
   end
 
 end

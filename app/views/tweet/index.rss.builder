@@ -3,7 +3,7 @@ xml.rss :version => "2.0" do
   xml.channel do
     xml.title "Tweets for #{@tweeter.screen_name}"
     xml.description "Tweets for #{@tweeter.screen_name}"
-    for tweet in @tweeter.tweets(params[:password])
+    for tweet in @tweeter.tweets(@twitter)
       xml.item do
         xml.title "#{screen_name(tweet)}#{suffix(tweet)}"
         xml.link "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" unless direct_message?(tweet)
