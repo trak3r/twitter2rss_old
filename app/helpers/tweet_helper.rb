@@ -24,10 +24,12 @@ module TweetHelper
   end
   
   def avatar(tweet)
-    if profile_image_url(tweet)
-      url = profile_image_url(tweet)
-    else
+    if direct_message?(tweet)
       url = lookup_avatar(tweet.sender_id)
+    elsif reference?(tweet)
+      url = lookup_avatar(tweet.from_user_id)
+    else
+      url = profile_image_url(tweet)
     end
     "#{image_tag(url, {:align => 'left', :style => 'padding-right:10px'})}"
   end
@@ -44,7 +46,7 @@ module TweetHelper
 
   def lookup_avatar(id)
     # TODO: memoize me
-    @twitter.user(id).profile_image_url
+    @twitter.user(id).profile_image_url rescue 'http://static.twitter.com/images/default_profile_normal.png'
   end
 
 end
