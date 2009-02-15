@@ -9,7 +9,7 @@ module Twitter
 
     def references
       filtered = []
-      Twitter::Search.new(screen_name).per_page(100).each do |result|
+      Twitter::Search.new("@#{screen_name}").per_page(100).each do |result|
         # don't include @replies
         filtered << result unless result.text.starts_with?("@#{screen_name}")
       end
