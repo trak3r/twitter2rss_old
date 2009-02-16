@@ -1,3 +1,5 @@
+rsa_key*
+*.pem
 log/*
 config/database.yml
 *.swp

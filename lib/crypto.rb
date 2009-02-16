@@ -4,11 +4,15 @@ require 'openssl'
 
 module Crypto
 
-  def self.create_keys(priv = "rsa_key", pub = "#{priv}.pub", bits = 1024)
-    private_key = OpenSSL::PKey::RSA.new(bits)
-    File.open(priv, "w+") { |fp| fp << private_key.to_s }
-    File.open(pub,  "w+") { |fp| fp << private_key.public_key.to_s }
-    private_key
+  def self.create_keys(priv = "rsa_key", pub = "#{priv}.pub", bits = 512)
+    if File.exists?(priv) && File.exists?(pub)
+      # don't regenerate the keys every time
+    else
+      private_key = OpenSSL::PKey::RSA.new(bits)
+      File.open(priv, "w+") { |fp| fp << private_key.to_s }
+      File.open(pub,  "w+") { |fp| fp << private_key.public_key.to_s }
+      private_key
+    end
   end
 
   class Key
@@ -22,16 +26,33 @@ module Crypto
     end
 
     def encrypt(text)
-      Base64.encode64(@key.send("#{key_type}_encrypt", text))
+      encode(@key.send("#{key_type}_encrypt", text))
     end
 
     def decrypt(text)
-      @key.send("#{key_type}_decrypt", Base64.decode64(text))
+      @key.send("#{key_type}_decrypt", decode(text))
     end
 
-    def private?  !@public  end
+    def strip(text)
+      text.gsub(/\r/, '').gsub(/\n/, '')
+    end
 
-    def public?   @public   end
+    def encode(plain)
+      # http://www.fepus.net/ruby1line.txt
+      CGI.escape(strip(Base64.encode64(plain)))
+    end
+
+    def decode(encoded)
+      Base64.decode64(CGI.unescape(encoded))
+    end
+
+    def private?
+      !@public
+    end
+
+    def public?
+      @public
+    end
 
     def key_type
       @public ? :public : :private
