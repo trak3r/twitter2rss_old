@@ -38,6 +38,12 @@
                 font-size: large;
                 color: darkred;
             }
+            li {
+                padding: 4px;
+            }
+            p {
+                padding-left: 14px;
+            }
             -->
         </style>
     </head>
@@ -47,26 +53,37 @@
             <h1>Twitter2RSS</h1>
 
             <h2> Twitter already has RSS feeds. Why would I use this service? </h2>
-            <p>
-                Twitter's RSS feed does not include direct messages or avatars and commonly truncates the tweets. Blech!
-                </p>
-                <p>
-                Also, by default, Twitter (and all third-party clients that conform to its API) 
-                will not catch any @replies if your screen name isn't <em>the first word in the message</em>;
-                Twitter2RSS will pick it up <em>no matter where</em> in the message it appears.
-            </p>
+            <ol>
+                <li>
+                    Twitter's RSS feed does not include avatars.
+                </li>
+                <li>
+                    Twitter's RSS feed does not include direct messages.
+                </li>
+                <li>
+                    Twitter's RSS feed commonly truncates the tweets. Blech!
+                </li>
+                <li>
+                    Twitter (and all third-party clients that conform to its API)
+                    will not catch @replies if your screen name isn't <em>the first word in the tweet</em>;
+                    Twitter2RSS will pick it up <em>no matter where</em> in the message it appears.
+                </li>
+            </ol>
             <h2> OK, you've sold me.  How do I use it? </h2>
             <p>
                 Plug this URL into your feed reader:
-                <blockquote>
-                    http://twitter2rss.anachromystic.com/<span class="username">username</span>/<span class="password">password</span>.rss
-                </blockquote>
+            </p>
+            <blockquote>
+                http://twitter2rss.anachromystic.com/<span class="username">username</span>/<span class="password">password</span>.rss
+            </blockquote>
+            <p>
                 Replace <span class="username">username</span> with your Twitter login
                 and <span class="password">password</span> with your Twitter password.
             </p>
             <h2> OMG that's so incredibly insecure to put my password in the URL! </h2>
             <p>
-                Yup, it is. Rest assured I'm not storing your password, <em>but</em> you are at risk of getting it sniffed either on the 'net or over your 		shoulder. I'll be implementing a feature, <em>eventually</em>, which will let you generate a more obfuscated unique URL for security through obscurity, but for now, this is how it works.
+                Yup, it is. Rest assured I'm not storing your password, <em>but</em> you are at risk of getting it sniffed either on the 'net or over your shoulder.
+                I'll be implementing a feature, <em>eventually</em>, to let you generate a more obfuscated unique URL for security through obscurity, but for now, this is how it works.
             </p>
         </div>
     </body>
