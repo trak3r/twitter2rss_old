@@ -4,7 +4,7 @@ module Twitter
       tl = timeline(:friends, options)
       dm = direct_messages(options)
       rf = references
-      (tl+dm+rf).sort{|a,b|Date.parse(a.created_at) <=> Date.parse(b.created_at)}
+      (tl+dm+rf).sort{|b,a|Date.parse(a.created_at) <=> Date.parse(b.created_at)}
     end
 
     def references
