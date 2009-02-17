@@ -31,7 +31,7 @@ module TweetHelper
     else
       url = profile_image_url(tweet)
     end
-    "#{image_tag(url, {:align => 'left', :style => 'padding-right:10px'})}"
+    "#{image_tag(url, {:align => 'left', :style => 'padding-right:7px'})}"
   end
 
   def profile_image_url(tweet)
