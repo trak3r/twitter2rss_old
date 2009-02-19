@@ -20,7 +20,7 @@ module TweetHelper
   end
 
   def formatted(text)
-    "<span style=\"font-size:medium\">#{text}</span>"
+    "<span style=\"font-size:medium\">#{TweetHelper.un_h(text)}</span>"
   end
   
   def avatar(tweet)
@@ -49,4 +49,9 @@ module TweetHelper
     @twitter.user(id).profile_image_url rescue 'http://static.twitter.com/images/default_profile_normal.png'
   end
 
+  class << self
+    def un_h(text)
+      text.gsub('&lt;', '<').gsub('&gt;', '>')
+    end
+  end
 end
