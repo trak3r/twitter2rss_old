@@ -1,0 +1,8 @@
+<Twitter::DirectMessage:0x23d8a18
+ @sender_id="14585522",
+ @recipient_screen_name="teflonted",
+ @sender_screen_name="kanook",
+ @created_at="Fri Jan 16 15:00:38 +0000 2009",
+ @id="51225600",
+ @recipient_id="845611",
+ @text="I think it's called \"fellatio\"">
