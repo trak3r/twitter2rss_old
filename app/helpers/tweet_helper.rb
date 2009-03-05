@@ -51,7 +51,7 @@ module TweetHelper
 
   class << self
     def un_h(text)
-      text.gsub('&lt;', '<').gsub('&gt;', '>')
+      text.gsub('&lt;', '<').gsub('&gt;', '>').gsub('&quot;', '"')
     end
   end
 end
