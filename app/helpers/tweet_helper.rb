@@ -27,7 +27,7 @@ module TweetHelper
     if direct_message?(tweet)
       url = lookup_avatar(tweet.sender_id)
     elsif reference?(tweet)
-      url = lookup_avatar(tweet.from_user_id)
+      url = tweet.profile_image_url
     else
       url = profile_image_url(tweet)
     end
