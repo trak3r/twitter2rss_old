@@ -1,0 +1,10 @@
+#<Twitter::User:0x3791fb4
+ @name="Rate Marina's Outfit",
+ @profile_image_url="http://s3.amazonaws.com/twitter_production/profile_images/79655839/adrianaLima_by_cd_marcus_normal.jpg",
+ @description="Come rate Marina's outfits!",
+ @followers_count="3",
+ @protected=false,
+ @location="",
+ @id="21160416",
+ @screen_name="2hot4words",
+ @url="http://marina.anachromystic.com/">

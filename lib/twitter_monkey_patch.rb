@@ -3,7 +3,6 @@ module Twitter
     
     def merged_timeline(options={})
       tl = timeline(:friends, options)
-      note_followings(tl)
       dm = direct_messages(options)
       rf = references
       (tl+dm+rf).sort{|b,a|Date.parse(a.created_at) <=> Date.parse(b.created_at)}
@@ -19,15 +18,14 @@ module Twitter
 
     private
 
-    def note_followings(tweets)
-      tweets.each do |tweet|
-        @followings ||= []
-        @followings << tweet.user.screen_name
-      end
-    end
-    
     def already_following?(result)
-      @followings.include?(result.from_user)
+      unless @friends_list
+        @friends_list = []
+        friends.each do |friend|
+          @friends_list << friend.screen_name
+        end
+      end
+      @friends_list.include?(result.from_user)
     end
     
     def is_reply?(result)
