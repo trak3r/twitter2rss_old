@@ -20,7 +20,7 @@ module TweetHelper
   end
 
   def formatted(text)
-    "<span style=\"font-size:medium\">#{auto_link(CGI::unescapeHTML(text.gsub('&amp;','&')))}</span>"
+    "<span style=\"font-size:medium\">#{Twitter::Base.auto_link_ats(auto_link(CGI::unescapeHTML(text.gsub('&amp;','&'))))}</span>"
   end
   
   def avatar(tweet)
