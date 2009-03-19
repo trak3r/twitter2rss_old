@@ -6,6 +6,16 @@ class Tweeter < ActiveRecord::Base
     _tweets = twitter.merged_timeline(:count => 66)
     update_attribute(:last_polled_at, Time.now) if (_tweets && _tweets.last)
     _tweets
+  rescue Exception => e
+    dm = Twitter::DirectMessage.new
+    dm.text = "Twitter2RSS encountered the following error:<br/>\"#{e.message}\"<br/>"
+    dm.id = '-1'
+    dm.sender_id = '21152730' # @tweets2rss
+    dm.recipient_id = '-1'
+    dm.sender_screen_name = 'tweets2rss'
+    dm.recipient_screen_name = self.screen_name
+    dm.created_at = "#{Time.now}"
+    [dm]
   end
 
   class << self
