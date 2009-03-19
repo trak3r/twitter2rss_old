@@ -1,9 +1,9 @@
-xml.instruct! :xml, :version => "1.0"
-xml.rss :version => "2.0" do
-  xml.channel do
-    xml.title "Tweets for #{@tweeter.screen_name}"
-    xml.description "Tweets for #{@tweeter.screen_name}"
-    cache(cache_key(@tweeter, params[:password])) do
+cache(cache_key(@tweeter, params[:password])) do
+  xml.instruct! :xml, :version => "1.0"
+  xml.rss :version => "2.0" do
+    xml.channel do
+      xml.title "Tweets for #{@tweeter.screen_name}"
+      xml.description "Tweets for #{@tweeter.screen_name}"
       for tweet in @tweeter.tweets(@twitter)
         xml.item do
           xml.title "#{screen_name(tweet)}#{suffix(tweet)}"
