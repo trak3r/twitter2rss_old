@@ -1,5 +1,11 @@
 module TweetHelper
 
+  def cache_key(tweeter, password)
+    # http://stackoverflow.com/questions/449271/how-to-round-a-time-down-to-the-nearest-15-minutes-in-ruby
+    t = Time.now
+    "#{tweeter.screen_name}_#{(t-t.sec-t.min%15*60).strftime('%Y-%m-%d-%H-%M')}_#{password.hash}"
+  end
+  
   def suffix(tweet)
     return " (@reply)" if reply?(@tweeter, tweet)
     return " (direct message)" if direct_message?(tweet)
