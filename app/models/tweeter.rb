@@ -8,7 +8,7 @@ class Tweeter < ActiveRecord::Base
     _tweets
   rescue Exception => e
     dm = Twitter::DirectMessage.new
-    dm.text = "Twitter2RSS encountered the following error:<br/>\"#{e.message}\"<br/>"
+    dm.text = "Twitter2RSS received the following error from the Twitter API:<br/>\"#{e.message}\"<br/>"
     dm.id = "#{Time.now.strftime('%Y%j%M%S')}"
     dm.sender_id = '21152730' # @tweets2rss
     dm.recipient_id = '-1'

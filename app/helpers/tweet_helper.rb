@@ -51,7 +51,7 @@ module TweetHelper
   private
 
   def lookup_avatar(id)
-    # TODO: memoize me
-    @twitter.user(id).profile_image_url rescue 'http://static.twitter.com/images/default_profile_normal.png'
+    @avatars ||= {}
+    @avatars[id] ||= (@twitter.user(id).profile_image_url rescue 'http://static.twitter.com/images/default_profile_normal.png')
   end
 end

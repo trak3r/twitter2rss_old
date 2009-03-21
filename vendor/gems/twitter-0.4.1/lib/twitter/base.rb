@@ -196,6 +196,10 @@ module Twitter
       
       def response(path, options={})
         uri = URI.parse("http://#{@api_host}")
+
+        # @hit_counter ||= 0
+        # @hit_counter += 1
+        # STDOUT.puts("#{@hit_counter}: #{path}")
         
         begin
           response = Net::HTTP::Proxy(@proxy_host, @proxy_port).start(uri.host, uri.port) do |http|
