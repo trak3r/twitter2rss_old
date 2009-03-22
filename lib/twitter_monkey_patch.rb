@@ -7,8 +7,8 @@ module Twitter
     end  
     
     def merged_timeline(options={})
-      tl = timeline(:friends, options)
-      dm = direct_messages(options)
+      tl = timeline(:friends, {:count => 99}.merge(options))
+      dm = direct_messages({:count => 22}.merge(options))
       rf = references
       (tl+dm+rf).sort{|b,a|Date.parse(a.created_at) <=> Date.parse(b.created_at)}
     end
@@ -18,7 +18,7 @@ module Twitter
       Twitter::Search.new("@#{screen_name}").per_page(100).each do |result|
         filtered << result unless(is_reply?(result) || already_following?(result))
       end
-      filtered
+      filtered[0..20]
     end
 
     private
