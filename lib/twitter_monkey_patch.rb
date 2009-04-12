@@ -3,7 +3,7 @@ module Twitter
 
     # TODO: monkey-patch this into ActionView::Helpers::TextHelper.auto_link
     def self.auto_link_ats(text)
-      text.gsub(/(^|\s)@([A-Za-z0-9]+)/,'\1<a href="http://twitter.com/\2">@\2</a>')
+      text.gsub(/(^|\s)@([A-Za-z0-9_]+)/,'\1<a href="http://twitter.com/\2">@\2</a>')
     end  
     
     def merged_timeline(options={})
