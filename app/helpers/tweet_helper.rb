@@ -45,13 +45,19 @@ module TweetHelper
   end
 
   def screen_name(tweet)
-    tweet.user.screen_name # Status
-  rescue 
-    tweet.sender_screen_name # DirectMessage
-  rescue 
-    tweet.from_user # search result
-  rescue
-    '?'
+    begin
+      tweet.user.screen_name # Status
+    rescue 
+      begin
+        tweet.sender_screen_name # DirectMessage
+      rescue 
+        begin
+          tweet.from_user # SearchResult
+        rescue
+          '?'
+        end
+      end
+    end
   end
 
   private
