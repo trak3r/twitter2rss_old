@@ -86,4 +86,4 @@ end
 
 require 'lib/twitter_monkey_patch'
 require 'lib/crypto'
-Crypto.create_keys
+# Crypto.create_keys
