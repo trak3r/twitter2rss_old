@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -27,15 +27,15 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'json', :version => '1.1.6'
-  config.gem 'httparty', :version => '0.2.6'
   config.gem 'twitter', :version => '0.4.1'
-  config.gem "net-ssh", :lib => "net/ssh", :version => "2.0.4"
-  config.gem "net-ssh-gateway", :lib => "net/ssh/gateway", :version => "1.0.0"
-  config.gem "net-scp", :lib => "net/scp", :version => "1.0.1"
-  config.gem "net-sftp", :lib => "net/sftp", :version => "2.0.1"
-  config.gem "capistrano", :version => '2.5.2'
-  config.gem "capistrano-ext", :lib => "capistrano", :version => '1.2.1'
+
+  # for deployment
+  # config.gem "net-ssh", :lib => "net/ssh", :version => "2.0.4"
+  # config.gem "net-ssh-gateway", :lib => "net/ssh/gateway", :version => "1.0.0"
+  # config.gem "net-scp", :lib => "net/scp", :version => "1.0.1"
+  # config.gem "net-sftp", :lib => "net/sftp", :version => "2.0.1"
+  # config.gem "capistrano", :version => '2.5.2'
+  # config.gem "capistrano-ext", :lib => "capistrano", :version => '1.2.1'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
