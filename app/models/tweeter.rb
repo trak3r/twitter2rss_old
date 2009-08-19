@@ -6,17 +6,16 @@ class Tweeter < ActiveRecord::Base
     _tweets = twitter.merged_timeline
     update_attribute(:last_polled_at, Time.now) if (_tweets && _tweets.last)
     _tweets
-  rescue Exception => e
-    notify_hoptoad(e)
-    dm = Twitter::DirectMessage.new
-    dm.text = "Twitter2RSS received the following error from the Twitter API:<br/>\"#{e.message}\"<br/>"
-    dm.id = "#{Time.now.strftime('%Y%j%M%S')}"
-    dm.sender_id = '21152730' # @tweets2rss
-    dm.recipient_id = '-1'
-    dm.sender_screen_name = 'tweets2rss'
-    dm.recipient_screen_name = self.screen_name
-    dm.created_at = "#{Time.now}"
-    [dm]
+  # rescue Exception => e
+  #   dm = Twitter::DirectMessage.new
+  #   dm.text = "Twitter2RSS received the following error from the Twitter API:<br/>\"#{e.message}\"<br/>"
+  #   dm.id = "#{Time.now.strftime('%Y%j%M%S')}"
+  #   dm.sender_id = '21152730' # @tweets2rss
+  #   dm.recipient_id = '-1'
+  #   dm.sender_screen_name = 'tweets2rss'
+  #   dm.recipient_screen_name = self.screen_name
+  #   dm.created_at = "#{Time.now}"
+  #   [dm]
   end
 
   class << self
