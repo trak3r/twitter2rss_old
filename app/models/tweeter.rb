@@ -7,6 +7,7 @@ class Tweeter < ActiveRecord::Base
     update_attribute(:last_polled_at, Time.now) if (_tweets && _tweets.last)
     _tweets
   rescue Exception => e
+    notify_hoptoad(e)
     dm = Twitter::DirectMessage.new
     dm.text = "Twitter2RSS received the following error from the Twitter API:<br/>\"#{e.message}\"<br/>"
     dm.id = "#{Time.now.strftime('%Y%j%M%S')}"
