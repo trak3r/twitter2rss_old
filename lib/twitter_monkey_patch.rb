@@ -9,11 +9,11 @@ module Twitter
     def merged_timeline(options={})
       tl = []
       Tweeter.benchmark "timeline" do
-        tl = timeline(:friends, {:count => 44}.merge(options))
+        tl = timeline(:friends, {:count => 55}.merge(options))
       end
       dm = []
       Tweeter.benchmark "direct_messages" do
-        dm = direct_messages({:count => 22}.merge(options))
+        dm = direct_messages({:count => 11}.merge(options))
       end
       rf = []
       Tweeter.benchmark "references" do
@@ -24,7 +24,7 @@ module Twitter
     
     def references
       filtered = []
-      Twitter::Search.new("@#{screen_name}").per_page(22).each do |result|
+      Twitter::Search.new("@#{screen_name}").per_page(11).each do |result|
         filtered << result unless(is_reply?(result) || already_following?(result))
       end
       filtered[0..20]
