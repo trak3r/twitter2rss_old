@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   # config.gem 'crack', :version => '0.1.4'
   # config.gem 'httparty', :version => '0.4.4'
+  config.gem 'hashie', :version => '0.1.5'
   config.gem 'ruby-hmac', :lib => 'hmac', :version => '0.3.2'
   config.gem 'oauth', :version => '0.3.6'
   config.gem 'twitter', :version => '0.7.9' # '0.4.1'
