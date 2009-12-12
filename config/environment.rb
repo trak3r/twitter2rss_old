@@ -27,8 +27,8 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'crack', :version => '0.1.4'
-  config.gem 'httparty', :version => '0.4.4'
+  # config.gem 'crack', :version => '0.1.4'
+  # config.gem 'httparty', :version => '0.4.4'
   config.gem 'twitter', :version => '0.4.1'
 
   # for deployment
@@ -87,5 +87,5 @@ Rails::Initializer.run do |config|
 end
 
 require 'lib/twitter_monkey_patch'
-require 'lib/crypto'
+# require 'lib/crypto'
 # Crypto.create_keys
