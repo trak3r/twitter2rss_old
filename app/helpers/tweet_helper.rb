@@ -18,11 +18,11 @@ module TweetHelper
   end
 
   def direct_message?(tweet)
-    tweet.kind_of?(Twitter::DirectMessage)
+    false # tweet.kind_of?(Twitter::DirectMessage)
   end
 
   def reference?(tweet)
-    tweet.kind_of?(Twitter::SearchResult)
+    false # tweet.kind_of?(Twitter::SearchResult)
   end
 
   def formatted(text)

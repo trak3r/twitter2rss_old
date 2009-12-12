@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   # config.gem 'crack', :version => '0.1.4'
   # config.gem 'httparty', :version => '0.4.4'
-  config.gem 'twitter', :version => '0.4.1'
+  config.gem 'twitter', :version => '0.7.9' # '0.4.1'
 
   # for deployment
   # config.gem "net-ssh", :lib => "net/ssh", :version => "2.0.4"

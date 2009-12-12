@@ -24,9 +24,12 @@ begin
   </channel>
 </rss>
 <%
-
 rescue Exception => e
-  %><%= e.backtrace.join('<br/>') %><%
-end
+%>
 
+<%= e.message %>
+<%= e.backtrace.join("\n") %>
+
+<%
+end
 %>
