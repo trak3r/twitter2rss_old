@@ -24,9 +24,9 @@ module Twitter
     
     def references
       filtered = []
-      # Twitter::Search.new("@#{screen_name}").per_page(11).each do |result|
-      #   filtered << result unless(is_reply?(result) || already_following?(result))
-      # end
+      Twitter::Search.new("@#{screen_name}").per_page(11).each do |result|
+        filtered << result unless(is_reply?(result) || already_following?(result))
+      end
       filtered[0..20]
     end
 
