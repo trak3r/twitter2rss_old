@@ -30,18 +30,18 @@ module TweetHelper
   end
   
   def avatar(tweet)
-    if direct_message?(tweet)
-      url = lookup_avatar(tweet.sender_id)
-    elsif reference?(tweet)
-      url = tweet.profile_image_url
-    else
-      url = profile_image_url(tweet)
-    end
-    "#{image_tag(url, {:align => 'left', :height => 48, :width => 48, :style => 'padding-right:5px'})}"
+    # if direct_message?(tweet)
+    #   url = lookup_avatar(tweet.sender_id)
+    # elsif reference?(tweet)
+    #   url = tweet.profile_image_url
+    # else
+    #   url = profile_image_url(tweet)
+    # end
+    "#{image_tag(profile_image_url(tweet), {:align => 'left', :height => 48, :width => 48, :style => 'padding-right:5px'})}"
   end
 
   def profile_image_url(tweet)
-    tweet.user.profile_image_url rescue nil
+    tweet.user.profile_image_url rescue tweet.sender.profile_image_url
   end
 
   def screen_name(tweet)
@@ -60,10 +60,10 @@ module TweetHelper
     end
   end
 
-  private
-
-  def lookup_avatar(id)
-    @avatars ||= {}
-    @avatars[id] ||= (@twitter.user(id).profile_image_url rescue 'http://static.twitter.com/images/default_profile_normal.png')
-  end
+  # private
+  # 
+  # def lookup_avatar(id)
+  #   @avatars ||= {}
+  #   @avatars[id] ||= (@twitter.user(id).profile_image_url rescue 'http://static.twitter.com/images/default_profile_normal.png')
+  # end
 end
