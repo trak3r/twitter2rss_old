@@ -1,8 +1,58 @@
-<Twitter::DirectMessage:0x23d8a18
- @sender_id="14585522",
- @recipient_screen_name="teflonted",
- @sender_screen_name="kanook",
- @created_at="Fri Jan 16 15:00:38 +0000 2009",
- @id="51225600",
- @recipient_id="845611",
- @text="I think it's called \"fellatio\"">
+"<#Hashie::Mash 
+  created_at=\"Fri Dec 25 01:46:44 +0000 2009\"
+  id=675837328 
+  recipient=<#Hashie::Mash created_at=\"Mon Feb 16 17:53:36 +0000 2009\"
+     description=\"Ted's account for demo'ing his bazillion Twitter projects.\"
+     favourites_count=0 
+     followers_count=15 
+     following=false 
+     friends_count=7 
+     geo_enabled=false 
+     id=21007531 
+     location=\"\"
+     name=\"Ted's Demo\"
+     notifications=false 
+     profile_background_color=\"9ae4e8\"
+     profile_background_image_url=\"http://s.twimg.com/a/1261519751/images/themes/theme1/bg.png\"
+     profile_background_tile=false profile_image_url=\"http://a3.twimg.com/profile_images/78887255/Photo_10_normal.jpg\"
+     profile_link_color=\"0000ff\"
+     profile_sidebar_border_color=\"87bc44\"
+     profile_sidebar_fill_color=\"e0ff92\"
+     profile_text_color=\"000000\"
+     protected=false 
+     screen_name=\"tedsdemo\"
+     statuses_count=64 
+     time_zone=\"Central Time (US & Canada)\"
+     url=\"http://twitter2rss.anachromystic.com/\"
+     utc_offset=-21600 
+     verified=false> 
+  recipient_id=21007531 
+  recipient_screen_name=\"tedsdemo\"
+  sender=<#Hashie::Mash created_at=\"Fri Mar 09 20:22:24 +0000 2007\"
+     description=\"Married to Java. Sleeping with Ruby.\"
+     favourites_count=32 
+     followers_count=362 
+     following=true 
+     friends_count=92 
+     geo_enabled=false 
+     id=845611 
+     location=\"Ft. Lauderdale, FL\"
+     name=\"Teflon Ted\"
+     notifications=false profile_background_color=\"C6E2EE\"
+          profile_background_image_url=\"http://s.twimg.com/a/1261519751/images/themes/theme2/bg.gif\"
+     profile_background_tile=false 
+     profile_image_url=\"http://a3.twimg.com/profile_images/387803769/2990377114_e10b9cabe6_o_normal.jpg\"
+     profile_link_color=\"1F98C7\"
+     profile_sidebar_border_color=\"C6E2EE\"
+     profile_sidebar_fill_color=\"DAECF4\"
+     profile_text_color=\"663B12\"
+     protected=false 
+     screen_name=\"teflonted\"
+     statuses_count=4224 
+     time_zone=\"Eastern Time (US & Canada)\"
+     url=\"http://trak3r.blogspot.com/\"
+     utc_offset=-18000 
+     verified=false> 
+  sender_id=845611 
+  sender_screen_name=\"teflonted\"
+  text=\"can you read me now?\">"

@@ -1,10 +1,36 @@
-#<Twitter::User:0x3791fb4
- @name="Rate Marina's Outfit",
- @profile_image_url="http://s3.amazonaws.com/twitter_production/profile_images/79655839/adrianaLima_by_cd_marcus_normal.jpg",
- @description="Come rate Marina's outfits!",
- @followers_count="3",
- @protected=false,
- @location="",
- @id="21160416",
- @screen_name="2hot4words",
- @url="http://marina.anachromystic.com/">
+"<#Hashie::Mash created_at=\"Thu Dec 24 17:40:14 +0000 2009\"
+  favorited=false 
+  geo=nil 
+  id=7006063236 
+  in_reply_to_screen_name=nil 
+  in_reply_to_status_id=nil 
+  in_reply_to_user_id=nil 
+  source=\"<a href=\\\"http://gowalla.com/\\\"
+  rel=\\\"nofollow\\\">Gowalla</a>\"
+  text=\"Coffee with Sari — at Starbucks http://gowal.la/s/2mKD\"
+  truncated=false 
+  user=<#Hashie::Mash 
+    created_at=\"Fri Mar 09 20:22:24 +0000 2007\"
+    description=\"Married to Java. Sleeping with Ruby.\"
+    favourites_count=32 
+    followers_count=362 
+    following=false 
+    friends_count=92 
+    geo_enabled=false 
+    id=845611 
+    location=\"Ft. Lauderdale, FL\"
+    name=\"Teflon Ted\"
+    notifications=false 
+    profile_background_color=\"C6E2EE\"
+    profile_background_image_url=\"http://s.twimg.com/a/1261519751/images/themes/theme2/bg.gif\"
+    profile_background_tile=false profile_image_url=\"http://a3.twimg.com/profile_images/387803769/2990377114_e10b9cabe6_o_normal.jpg\"
+    profile_link_color=\"1F98C7\"
+    profile_sidebar_border_color=\"C6E2EE\"
+    profile_sidebar_fill_color=\"DAECF4\"
+    profile_text_color=\"663B12\"
+    protected=false 
+    screen_name=\"teflonted\"
+    statuses_count=4222 
+    time_zone=\"Eastern Time (US & Canada)\"
+    url=\"http://trak3r.blogspot.com/\"
+    utc_offset=-18000 verified=false>>"
