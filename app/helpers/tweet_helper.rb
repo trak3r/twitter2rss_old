@@ -18,7 +18,7 @@ module TweetHelper
   end
 
   def direct_message?(tweet)
-    false # tweet.kind_of?(Twitter::DirectMessage)
+    !tweet.sender.nil? # tweet.kind_of?(Twitter::DirectMessage)
   end
 
   def reference?(tweet)
