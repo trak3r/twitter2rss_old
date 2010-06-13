@@ -11,7 +11,9 @@ begin
     <% for tweet in @tweeter.tweets(@twitter) %>
     <item>
       <title><%=h "#{screen_name(tweet)}#{suffix(tweet)}" -%></title>
-      <% unless direct_message?(tweet) %>
+      <% if direct_message?(tweet) %>
+      <link><%= 'http://twitter.com/#inbox' -%></link>
+      <% else %>
       <link><%= "http://twitter.com/#{screen_name(tweet)}/status/#{tweet.id}" -%></link>
       <% end %>
       <guid><%= "twitter2rss_#{tweet.id}" -%></guid>
